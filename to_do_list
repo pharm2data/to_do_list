@@ -1,0 +1,42 @@
+tasks = []
+
+def add_task(task):
+    tasks.append(task)
+    print("Your task has been added:", task)
+
+def delete_task(task):
+    if task in tasks:
+        tasks.remove(task)
+        print("Your task has been deleted:", task)
+    else: 
+        print("Your task was not found")
+
+def view_tasks():
+    if not tasks:
+        print("There are no tasks in your list")
+    else: 
+        print("Tasks:")
+        for index, task in enumerate(tasks, start=1):
+            print(f"{index}. {task}")
+
+while True:
+    print("Options")
+    print("Enter 'add' to add a task")
+    print("Enter 'delete' to delete a task")
+    print("Enter 'view' to view tasks")
+    print("Enter 'exit' to end the program")
+
+    user_input = input(": ")
+
+    if user_input == "exit":
+        break
+    elif user_input == "add":
+        task = input("Please enter the task you would like added: ")
+        add_task(task)
+    elif user_input == "delete":
+        task = input("Please enter the task you would like deleted: ")
+        delete_task(task)
+    elif user_input == "view":
+        view_tasks()
+    else:
+        print("Your input was invalid")
